@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Android\HitchHome\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Android\HitchHome\app\build\intermediates\pre-dexed\debug\classes-04ea5271926bd9d9fe8fb2850bc8d3f3d176a41f.jar" />
+    </item>
+    <item
+        jar="C:\Android\HitchHome\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Android\HitchHome\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-96f7bb8ebfd3f160149c8d656b4198d35708797b.jar" />
+    </item>
+    <item
+        jar="C:\Android\HitchHome\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Android\HitchHome\app\build\intermediates\pre-dexed\debug\classes-37b546773a9c3d41db76f753fc7830bd7fa9af5d.jar" />
+    </item>
+    <item
+        jar="C:\Users\conne_000\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Android\HitchHome\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-15e9d37ac4af6762bbe3919859589a5724cce83b.jar" />
+    </item>
+
+</items>
