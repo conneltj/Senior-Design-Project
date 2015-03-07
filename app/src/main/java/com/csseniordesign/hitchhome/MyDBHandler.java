@@ -31,6 +31,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+    //SQLiteDatabase myDB = SQLiteDatabase.openOrCreateDatabase("test.db", )
 
     }
 
