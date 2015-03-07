@@ -45,3 +45,6 @@ Temporary Items
 *.bin
 *.bin
 .idea/workspace.xml
+*.iml
+.gradle/2.2.1/taskArtifacts/taskArtifacts.bin
+*.bin
