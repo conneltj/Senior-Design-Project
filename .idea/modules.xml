@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HitchHome.iml" filepath="$PROJECT_DIR$/HitchHome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Senior-Design-Project.iml" filepath="$PROJECT_DIR$/Senior-Design-Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

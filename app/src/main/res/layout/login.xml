@@ -27,8 +27,8 @@
             android:id="@+id/imageViewLogo"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/textlogo"
-            android:layout_marginTop="30dp" />
+            android:background="@drawable/textlogo"/>
+
     </RelativeLayout>
 
     <RelativeLayout

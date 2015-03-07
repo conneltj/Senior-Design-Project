@@ -34,8 +34,8 @@ public class HomeActivity extends ActionBarActivity{
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //Intent homeIntent = new Intent(this, HomeActivity.class);
-                //this.startActivity(homeIntent);
+                Intent SearchRide = new Intent(HomeActivity.this, SearchRide.class);
+                startActivity(SearchRide);
             }
         });
         driverButton.setOnClickListener(new View.OnClickListener() {

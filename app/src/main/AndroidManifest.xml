@@ -17,6 +17,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".SearchRide"
+            android:label="HitchHome" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".HomeActivity"
             android:label="HitchHome" >
             <intent-filter>
@@ -25,6 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER"></category>
             </intent-filter>
         </activity>>
+
     </application>
 
 </manifest>
