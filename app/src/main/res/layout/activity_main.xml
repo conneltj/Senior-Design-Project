@@ -9,6 +9,59 @@
         layout="@layout/app_bar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_alignParentEnd="true"></include>
+        android:layout_alignParentEnd="true">
+
+    </include>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/app_bar"
+        android:layout_alignParentStart="true"
+        android:background="@color/primary">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:id="@+id/btnRideSearch"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/ic_launcher"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:id="@+id/btnDriver"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/ic_launcher"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:id="@+id/btnAccountDetails"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/ic_launcher"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:id="@+id/btnFillerAintNoKiller"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/ic_launcher"/>
+        </TableRow>
+    </TableLayout>
 
 </RelativeLayout>
