@@ -7,8 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -29,53 +27,31 @@ public class LoginActivity extends ActionBarActivity {
             setContentView(R.layout.login);
         }
 
-        final Button btnLogin = (Button) findViewById(R.id.btnLogin);
-        final Button btnSignUp = (Button) findViewById(R.id.btnSignUp);
-        final Button btnSkipShit = (Button) findViewById(R.id.btnSkipShit);
-        final TextView lblEmail = (TextView) findViewById(R.id.lblEmailAddress);
-        final TextView lblPassword = (TextView) findViewById(R.id.lblPassword);
-        final EditText txtEmail = (EditText) findViewById(R.id.txtEmailAddress);
-        final EditText txtPassword = (EditText) findViewById(R.id.txtPassword);
+        final Button loginButton = (Button) findViewById(R.id.btnLogin);
+        final Button suButton = (Button) findViewById(R.id.btnSignUp);
 
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //perform action
                 //Hide buttons
-                btnLogin.setVisibility(View.INVISIBLE);
-                btnSignUp.setVisibility(View.INVISIBLE);
-                //Show login text fields
-                lblEmail.setVisibility(View.VISIBLE);
-                lblPassword.setVisibility(View.VISIBLE);
-                txtEmail.setVisibility(View.VISIBLE);
-                txtPassword.setVisibility(View.VISIBLE);
-
-
-
-            }
-        });
-
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //perform action
-                //Hide Buttons
-
-                //Show signup textfields
-
-            }
-        });
-
-        btnSkipShit.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //perform action
-                //Hide Buttons
                 Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
                 homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(homeIntent);
+                //Show login text fields
+
+            }
+        });
+
+        suButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //perform action
+                //Hide Buttons
+
                 //Show signup textfields
 
             }
         });
+
 
     }
 
