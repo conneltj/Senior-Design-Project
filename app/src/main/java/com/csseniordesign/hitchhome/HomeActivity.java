@@ -11,8 +11,6 @@ import android.widget.ImageButton;
 /**
  * Created by conne_000 on 3/4/2015.
  */
-
-
 public class HomeActivity extends ActionBarActivity{
 
     private Toolbar toolbar;
