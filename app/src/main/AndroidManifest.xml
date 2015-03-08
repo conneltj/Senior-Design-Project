@@ -7,6 +7,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name" >
@@ -16,6 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".SearchRide"
             android:label="HitchHome" >
@@ -25,6 +27,17 @@
                 <category android:name="android.intent.category.LAUNCHER"></category>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".AccountDetails"
+            android:label="HitchHome" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".HomeActivity"
             android:label="HitchHome" >
