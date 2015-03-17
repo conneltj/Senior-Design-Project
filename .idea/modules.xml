@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HitchHome.iml" filepath="$PROJECT_DIR$/HitchHome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HitchHome_backend/HitchHome_backend.iml" filepath="$PROJECT_DIR$/HitchHome_backend/HitchHome_backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
