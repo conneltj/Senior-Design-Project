@@ -1,6 +1,9 @@
 package com.csseniordesign.hitchhome;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,13 +13,30 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class LoginActivity extends ActionBarActivity {
 
+    final Button btnLogin = (Button) findViewById(R.id.btnLogin);
+    final Button btnSignUp = (Button) findViewById(R.id.btnSignUp);
+    final Button btnSkipShit = (Button) findViewById(R.id.btnSkipShit);
+    final TextView lblEmail = (TextView) findViewById(R.id.lblEmailAddress);
+    final TextView lblPassword = (TextView) findViewById(R.id.lblPassword);
+    final EditText txtEmail = (EditText) findViewById(R.id.txtEmailAddress);
+    final EditText txtPassword = (EditText) findViewById(R.id.txtPassword);
+
+    private SQLiteDatabase database;
+    private String userID;
+    SharedPreferences prefs = this.getSharedPreferences("com.csseniordesign.hitchhome", MODE_PRIVATE);
+    SharedPreferences.Editor editor = prefs.edit();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         //Check if user credentials are stored
         if(userLoggedIn()){
@@ -29,13 +49,7 @@ public class LoginActivity extends ActionBarActivity {
             setContentView(R.layout.login);
         }
 
-        final Button btnLogin = (Button) findViewById(R.id.btnLogin);
-        final Button btnSignUp = (Button) findViewById(R.id.btnSignUp);
-        final Button btnSkipShit = (Button) findViewById(R.id.btnSkipShit);
-        final TextView lblEmail = (TextView) findViewById(R.id.lblEmailAddress);
-        final TextView lblPassword = (TextView) findViewById(R.id.lblPassword);
-        final EditText txtEmail = (EditText) findViewById(R.id.txtEmailAddress);
-        final EditText txtPassword = (EditText) findViewById(R.id.txtPassword);
+
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +68,8 @@ public class LoginActivity extends ActionBarActivity {
 
             }
         });
+
+
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -82,8 +98,37 @@ public class LoginActivity extends ActionBarActivity {
 
     private boolean userLoggedIn()
     {
-        Toast.makeText(this,"You are not logged in, please sign up.", Toast.LENGTH_SHORT);
+        userID = prefs.getString("userID",null);
+        if(userID == null){
+            return false;
+        }
+        else {
+            return true;
+        }
+
+
+        /*Toast.makeText(this,"You are not logged in, please sign up.", Toast.LENGTH_SHORT);
+        //Get login details
+        String email = txtEmail.getText.toString();
+        String password = txtPassword.getText.toString();
+        //Hash password
+
+        //Open or Create database
+        database = openOrCreateDatabase("Accounts",MODE_PRIVATE,null);
+        //Create query
+        Cursor resultSet = database.rawQuery("SELECT userid FROM LoginInfo WHERE email = " + email + " and password = " + password, null );
+        //Get results back
+        if(resultSet.isNull(0)){
+            return false;
+        }
+        else{
+            //Set global user id in local db
+
+        };
+        //Logic to attempt retry or to move to home page
+
         return false;
+        */
     }
 
 
