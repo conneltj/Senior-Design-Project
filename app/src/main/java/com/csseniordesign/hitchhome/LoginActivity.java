@@ -1,11 +1,14 @@
 package com.csseniordesign.hitchhome;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.provider.Settings;
+import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,32 +16,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.conne_000.myapplication.hitchome_cloud.myApi.MyApi;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.extensions.android.json.AndroidJsonFactory;
+import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
+import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
+
+import java.io.IOException;
 
 public class LoginActivity extends ActionBarActivity {
-
-    final Button btnLogin = (Button) findViewById(R.id.btnLogin);
-    final Button btnSignUp = (Button) findViewById(R.id.btnSignUp);
-    final Button btnSkipShit = (Button) findViewById(R.id.btnSkipShit);
-    final TextView lblEmail = (TextView) findViewById(R.id.lblEmailAddress);
-    final TextView lblPassword = (TextView) findViewById(R.id.lblPassword);
-    final EditText txtEmail = (EditText) findViewById(R.id.txtEmailAddress);
-    final EditText txtPassword = (EditText) findViewById(R.id.txtPassword);
-
-    private SQLiteDatabase database;
-    private String userID;
-    SharedPreferences prefs = this.getSharedPreferences("com.csseniordesign.hitchhome", MODE_PRIVATE);
-    SharedPreferences.Editor editor = prefs.edit();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
-        //Check if user credentials are stored
         if(userLoggedIn()){
             //May need to create new activity
             Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
@@ -47,10 +37,38 @@ public class LoginActivity extends ActionBarActivity {
         }
         else {
             setContentView(R.layout.login);
+            assignListeners();
         }
 
 
+    }
 
+    private boolean userLoggedIn() {
+        SharedPreferences prefs = this.getSharedPreferences("com.csseniordesign.hitchhome", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        String userID = prefs.getString("userID", null);
+        new EndpointsLoginTask().execute(new Pair<Context, String>(this, "Please Login"));
+
+        if (userID == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void test()
+    {
+        new EndpointsLoginTask().execute(new Pair<Context, String>(this, "Please Login"));
+    }
+
+    private void assignListeners(){
+        final Button btnLogin = (Button) findViewById(R.id.btnLogin);
+        final Button btnSignUp = (Button) findViewById(R.id.btnSignUp);
+        final Button btnSkipShit = (Button) findViewById(R.id.btnSkipShit);
+        final TextView lblEmail = (TextView) findViewById(R.id.lblEmailAddress);
+        final TextView lblPassword = (TextView) findViewById(R.id.lblPassword);
+        final EditText txtEmail = (EditText) findViewById(R.id.txtEmailAddress);
+        final EditText txtPassword = (EditText) findViewById(R.id.txtPassword);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -63,12 +81,11 @@ public class LoginActivity extends ActionBarActivity {
                 lblPassword.setVisibility(View.VISIBLE);
                 txtEmail.setVisibility(View.VISIBLE);
                 txtPassword.setVisibility(View.VISIBLE);
-
+                test();
 
 
             }
         });
-
 
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -94,44 +111,6 @@ public class LoginActivity extends ActionBarActivity {
         });
 
     }
-
-
-    private boolean userLoggedIn()
-    {
-        userID = prefs.getString("userID",null);
-        if(userID == null){
-            return false;
-        }
-        else {
-            return true;
-        }
-
-
-        /*Toast.makeText(this,"You are not logged in, please sign up.", Toast.LENGTH_SHORT);
-        //Get login details
-        String email = txtEmail.getText.toString();
-        String password = txtPassword.getText.toString();
-        //Hash password
-
-        //Open or Create database
-        database = openOrCreateDatabase("Accounts",MODE_PRIVATE,null);
-        //Create query
-        Cursor resultSet = database.rawQuery("SELECT userid FROM LoginInfo WHERE email = " + email + " and password = " + password, null );
-        //Get results back
-        if(resultSet.isNull(0)){
-            return false;
-        }
-        else{
-            //Set global user id in local db
-
-        };
-        //Logic to attempt retry or to move to home page
-
-        return false;
-        */
-    }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -152,5 +131,39 @@ public class LoginActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+}
+
+class EndpointsLoginTask extends AsyncTask<Pair<Context, String>, Void, String> {
+    private static MyApi myApiService = null;
+    private Context context;
+
+    @Override
+    protected String doInBackground(Pair<Context, String>... params) {
+        if (myApiService == null) { //Only do this once)
+            MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
+                    .setRootUrl("https://flash-zenith-87406.appspot.com/_ah/api/")
+                    .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
+                        @Override
+                        public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
+                            abstractGoogleClientRequest.setDisableGZipContent(true);
+                        }
+                    });
+            //End options for dev server
+            myApiService = builder.build();
+        }
+        context = params[0].first;
+        String name = params[0].second;
+
+        try {
+            return myApiService.sayHi(name).execute().getData();
+        } catch (IOException e) {
+            return e.getMessage();
+        }
+    }
+
+    @Override
+    protected void onPostExecute(String result){
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }
