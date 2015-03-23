@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import com.example.conne_000.myapplication.hitchome_cloud.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -24,6 +26,7 @@ import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class LoginActivity extends ActionBarActivity {
     @Override
@@ -165,5 +168,33 @@ class EndpointsLoginTask extends AsyncTask<Pair<Context, String>, Void, String> 
     @Override
     protected void onPostExecute(String result){
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+    }
+}
+
+class LoginInfo {
+    private String email;
+    private String password;
+    private Date lastLogin;
+    private long userID;
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String s){email = s;}
+
+    public long getUserID() {
+        return userID;
+    }
+    public void setUserID(long l) { userID = l; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String s) {
+        try {
+            password = PasswordHash.createHash(s);
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 }
