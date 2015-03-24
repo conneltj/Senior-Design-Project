@@ -18,8 +18,9 @@
         android:layout_height="166dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/unknown_user"
-        android:layout_weight="0.30" />
+        android:background="@drawable/ic_action_user"
+        android:layout_weight="0.30"
+        android:backgroundTint="@color/background_floating_material_dark" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +28,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Email:"
         android:id="@+id/textView7"
-        android:layout_marginLeft="30dp" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -43,7 +45,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Phone:"
         android:id="@+id/textView8"
-        android:layout_marginLeft="30dp" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -57,9 +60,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Bio:"
+        android:text="Driver Preferences:"
         android:id="@+id/textView9"
-        android:layout_marginLeft="30dp" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:layout_width="395dp"

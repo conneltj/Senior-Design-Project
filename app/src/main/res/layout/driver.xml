@@ -9,7 +9,9 @@
         layout="@layout/app_bar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        >
+
 
     </include>
 
@@ -20,7 +22,7 @@
         android:text="Final Destination City"
         android:id="@+id/textView10"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -28,7 +30,9 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/editText11"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
 
     <TextView
         android:layout_width="186dp"
@@ -37,7 +41,7 @@
         android:text="Number of Riders"
         android:id="@+id/textView11"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -45,7 +49,9 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText12"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +60,7 @@
         android:text="Donation Suggestion"
         android:id="@+id/textView12"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -62,7 +68,9 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText13"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
 
     <CheckBox
         android:layout_width="130dp"
@@ -70,7 +78,16 @@
         android:text="Provide Space for Baggage"
         android:id="@+id/checkBox2"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Additional Information"
+        android:id="@+id/textView13"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -78,6 +95,17 @@
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/editText14"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post Ride"
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="30dp" />
 
 </LinearLayout>

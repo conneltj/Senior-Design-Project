@@ -20,7 +20,12 @@
         </activity>
         <activity
             android:name=".SearchRide"
-            android:label="HitchHome" >
+            android:label="HitchHome"
+            android:parentActivityName=".HomeActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +34,12 @@
         </activity>
         <activity
             android:name=".AccountDetails"
-            android:label="HitchHome" >
+            android:label="HitchHome"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity"
+                />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

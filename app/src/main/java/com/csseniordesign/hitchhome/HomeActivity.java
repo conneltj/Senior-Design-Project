@@ -4,9 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.app.ActionBarDrawerToggle;
+//import android.support.v7.widget.LinearLayoutManager;
+//import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 /**
  * Created by conne_000 on 3/4/2015.
@@ -18,7 +26,7 @@ public class HomeActivity extends ActionBarActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
         assignBtnEventHandlersHomePage();
 
@@ -30,7 +38,7 @@ public class HomeActivity extends ActionBarActivity{
         ImageButton searchButton = (ImageButton) findViewById(R.id.btnRideSearch);
         ImageButton driverButton = (ImageButton) findViewById(R.id.btnDriver);
         ImageButton accdetailsButton = (ImageButton) findViewById(R.id.btnAccountDetails);
-        ImageButton placholderButton = (ImageButton) findViewById(R.id.btnFillerAintNoKiller);
+        ImageButton placholderButton = (ImageButton) findViewById(R.id.btnActiveRide);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

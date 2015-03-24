@@ -7,20 +7,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 /**
- * Created by conne_000 on 3/6/2015.
+ * Created by Tim on 3/23/2015.
  */
-public class SearchRide extends ActionBarActivity{
+public class Driver extends ActionBarActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_ride);
+        setContentView(R.layout.driver);
 
         //toolbar = (Toolbar) findViewById(R.id.app_bar);
         //setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
-
-
 }

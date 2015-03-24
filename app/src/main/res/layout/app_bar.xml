@@ -2,5 +2,18 @@
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/primary">
+    android:background="@color/primary"
+    android:elevation="2dp">
+
+    <TextView
+
+        android:id="@+id/myTitle"
+        android:text="HitchHome"
+        android:textSize="@dimen/abc_text_size_display_1_material"
+        android:textColor="@color/primary_dark_material_dark"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        />
+
 </android.support.v7.widget.Toolbar>

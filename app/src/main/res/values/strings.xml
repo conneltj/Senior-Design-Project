@@ -7,4 +7,6 @@
     <string name="email">Email Address</string>
     <string name="password">Password</string>
     <string name="mylocalhost">192.168.200.23</string>
+    <string name="AppBarTitle">HitchHome</string>
+
 </resources>
